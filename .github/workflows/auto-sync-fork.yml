@@ -12,8 +12,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: TGhack233/sync-fork@main
-        with:
-          upstream: wangzan101/Mika
-          branch: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sync fork from upstream
+        run: gh repo sync ${{ github.repository }} -b main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
